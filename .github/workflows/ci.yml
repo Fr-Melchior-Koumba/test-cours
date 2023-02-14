@@ -39,4 +39,4 @@ jobs:
     - name: Run visual tests 👁
       run: |
         cd my-app
-        npm run test:visual
+        npm test
