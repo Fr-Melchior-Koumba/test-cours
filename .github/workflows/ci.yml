@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14.x]
@@ -21,22 +21,22 @@ jobs:
     - name: Install dependencies 📦
       #Using npm ci is generally faster than running npm install
       run: |
-        cd test-cours
+        cd src
         npm ci
     - name: Build the app 🏗
       run: |
-        cd test-cours
+        cd src
         npm run build
     - name: Run component tests 🔸
       run: |
-        cd test-cours
+        cd src
         npm run test
     - name: Start the app 📤
       run: |
-        cd test-cours
+        cd src
         npm start &
         npx wait-on --timeout 60000
     - name: Run visual tests 👁
       run: |
-        cd test-cours
+        cd src
         npm run test:visual
